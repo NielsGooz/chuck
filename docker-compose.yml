@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  chuckapi:
+    container_name: chuckapi
+    image: ${DOCKER_REGISTRY-}chucknorisapi
+    build:
+      context: .
+      dockerfile: ChuckNoris.Api/Dockerfile
+    ports: 
+        - 31000:8080
+    networks:
+      - chucknetwork
+    depends_on:
+      - chuckdb
+  chuckdb:
+    container_name: chuckdb
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "VeryStrongPassword123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "31433:1433"
+    networks:
+      - chucknetwork
+networks:
+  chucknetwork:
+    driver: bridge

@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<ChuckContext>(opts => opts.UseSqlite(builder.Configuration.GetConnectionString("ChuckDatabase")));
+builder.Services.AddDbContext<ChuckContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("ChuckDatabase")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
