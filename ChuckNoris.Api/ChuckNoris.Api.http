@@ -1,0 +1,6 @@
+@ChuckNoris.Api_HostAddress = http://localhost:5012
+
+GET {{ChuckNoris.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
