@@ -23,6 +23,8 @@ services:
       - "31433:1433"
     networks:
       - chucknetwork
+    volumes:
+      - /Users/Niels/Documents/Data:/var/opt/mssql/data
 networks:
   chucknetwork:
     driver: bridge
